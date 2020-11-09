@@ -1,11 +1,9 @@
-// ALL STUDENT FOLDER 1_aX2zX0Z1dgurmBiveNbBlmfkNdO2cxw
-// TEST FOLDER   159w9euvH35th5rNVoPbJknN8ltYkagqH
 
 function addUserProtect(){
     var currentSS = SpreadsheetApp.getActive().getSheetByName("AllFunctions")
     var email = currentSS.getRange('B3').getValue()
-    var folder = DriveApp.getFolderById("1_aX2zX0Z1dgurmBiveNbBlmfkNdO2cxw");
-    var dsFolder = DriveApp.getFolderById("1yDUYGPYxUaKqmNsaQuhj2dKDVa2yBK6J?usp=sharing")
+    var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
+    var dsFolder = DriveApp.getFolderById("1yDUYs2fJzsldk_sjgaphGwlQJ")
     var dsAccess = dsFolder.addEditor(email)
     var access = folder.addEditor(email)
     var filesIterator = folder.getFiles();
@@ -28,8 +26,8 @@ function addUserProtect(){
       
   }
 
-  function resetEverything() {
-    var folder = DriveApp.getFolderById("159w9euvH35th5rNVoPbJknN8ltYkagqH");
+function resetEverything() {
+    var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
     
@@ -75,8 +73,7 @@ function addUserProtect(){
       templateCells.push([date,"",class2,teacher,supportStaff,"",false,false])
     }
     
-    console.log(templateCells)
-    var folder = DriveApp.getFolderById("159w9euvH35th5rNVoPbJknN8ltYkagqH");
+    var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
     while(filesIterator.hasNext()){
@@ -87,8 +84,8 @@ function addUserProtect(){
     }
   }
   
-  function orderByAscending(){
-    var folder = DriveApp.getFolderById("159w9euvH35th5rNVoPbJknN8ltYkagqH");
+function orderByAscending(){
+    var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
     while(filesIterator.hasNext()){
@@ -100,8 +97,8 @@ function addUserProtect(){
       }
    }
   
-  function orderByDescending(){
-    var folder = DriveApp.getFolderById("159w9euvH35th5rNVoPbJknN8ltYkagqH");
+function orderByDescending(){
+    var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
     while(filesIterator.hasNext()){
