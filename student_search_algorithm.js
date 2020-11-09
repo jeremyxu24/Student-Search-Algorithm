@@ -1,5 +1,4 @@
 function updateList2() {
-
     var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
@@ -28,14 +27,8 @@ function updateList2() {
         } else {
           hasTest.push([sheetValues2[i][0],class2,false]) 
         }
-  
-  
       }
-  
-      
-      
-      
-      
+    
       //All Missing Assignments
       var row = []
       var sheetName = spreadsheet.getSheetByName("All Missing Assignments");
@@ -84,15 +77,10 @@ function updateList2() {
       var upcomingSixth = ""
       var upcomingSeventh = ""
       var upcomingEighth = ""
-      
-      
-      console.log(studentName)
-      
+     
       var list1 = []
       var inList1 = {}
-      
       i=0
-  
       // loop through all files
       while (sheetValues[i][1]!="" || sheetValues[i][5]!=""){
 
