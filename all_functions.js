@@ -1,4 +1,3 @@
-
 function addUserProtect(){
     var currentSS = SpreadsheetApp.getActive().getSheetByName("AllFunctions")
     var email = currentSS.getRange('B3').getValue()
