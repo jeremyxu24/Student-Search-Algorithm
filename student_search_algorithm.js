@@ -1,4 +1,4 @@
-function updateList2() {
+function updateList() {
     var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
