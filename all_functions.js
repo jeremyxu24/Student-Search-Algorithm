@@ -21,15 +21,12 @@ function addUserProtect(){
       }
       }
     var clear = currentSS.getRange('B3').setValue("")
-  
-      
   }
 
 function resetEverything() {
     var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
-    
     var templateCells = []
   
     for (i=2;i<=151;i++) {
@@ -55,10 +52,7 @@ function resetEverything() {
          ss.getActiveSheet().getRange('J'+(i+3).toString()).setValue("=if(H"+(i+3).toString()+'="","",vlookup(concatenate(H'+(i+3).toString()+',I'+(i+3).toString()+'),WhiteBoard!$F:$J,4,0))')
          ss.getActiveSheet().getRange('K'+(i+3).toString()).setValue("=if(H"+(i+3).toString()+'="","",vlookup(concatenate(H'+(i+3).toString()+',I'+(i+3).toString()+'),WhiteBoard!$F:$J,5,0))')
       }
-      
-      ss2.getSheetByName("All Missing Assignments").getRange(2,1,150,8).setValues(templateCells)
-      
-      
+      ss2.getSheetByName("All Missing Assignments").getRange(2,1,150,8).setValues(templateCells)      
     }
   }
   
