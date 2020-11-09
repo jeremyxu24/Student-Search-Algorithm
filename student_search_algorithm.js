@@ -1,6 +1,6 @@
 function updateList2() {
 
-    var folder = DriveApp.getFolderById("1_aX2zX0Z1dgurmBiveNbBlmfkNdO2cxw");
+    var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
     var filesIterator = folder.getFiles();
     var ssTab;
     var currentSheet = SpreadsheetApp.getActive().getSheetByName("dataCollection")
