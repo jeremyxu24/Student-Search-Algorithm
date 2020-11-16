@@ -102,3 +102,154 @@ function orderByDescending(){
       var getCell = fileName.getRange('A3').setValue("=query('All Missing Assignments'!A1:J150,"+'"select A, B, C, D, F where H=FALSE order by A desc", 1)')
       }
    }
+
+function deleteMakeCopies() {
+  // delete all files in folder
+  var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
+  var filesIterator = folder.getFiles();
+  var ssTab;
+  while(filesIterator.hasNext()){
+    var file = filesIterator.next();
+    var ssID = file.getId()
+    var deleteFile = folder.removeFile(DriveApp.getFileById(ssID))
+}
+  // move file in
+  var sourceFileId = 'zAlUJg_12zXxPwdGwqaaPljhdO2cxw';
+  var destinationFolderId = "zAlUJg_12zXxPwdGwqaaPljhdO2cxw";
+  
+  var file = DriveApp.getFileById(sourceFileId);
+  DriveApp.getFolderById(destinationFolderId).addFile(file);
+  file
+  .getParents()
+  .next()
+  .removeFile(file);
+  
+  
+  // make copies
+  var currentSheet = SpreadsheetApp.getActive().getSheetByName('Sheet1')
+  var currentRange = currentSheet.getRange(2,1,150,1).getValues()
+  var newList = []
+  for (i=0;i<currentRange.length;i++){
+    if (currentRange[i]!=""){
+      newList.push(currentRange[i])
+    }
+    }
+  var editors = DriveApp.getFileById('zAlUJg_12zXxPwdGwqaaPljhdO2cxw').getEditors();
+  var viewers = DriveApp.getFileById('zAlUJg_12zXxPwdGwqaaPljhdO2cxw').getViewers();
+  console.log(newList)
+  for (i=0;i<newList.length;i++){
+    var file = DriveApp.getFileById('zAlUJg_12zXxPwdGwqaaPljhdO2cxw').makeCopy();
+    var fileId = file.getId()
+    var name = file.setName(newList[i])
+    console.log(newList[i])
+  }
+
+// give access to users  
+  var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
+  var filesIterator = folder.getFiles();
+  while(filesIterator.hasNext()){
+    var file = filesIterator.next();
+    var ssID = file.getId()
+    var name = file.getName()
+    console.log(name)
+    var ss2 = SpreadsheetApp.openById(ssID).getSheetByName("All Missing Assignments")
+    var protections = ss2.getProtections(SpreadsheetApp.ProtectionType.SHEET)
+    console.log(protections)
+    for (var i = 0; i<editors.length;i++) {
+      file.addEditor(editors[i])
+    }
+    for (var i = 0; i<viewers.length;i++) {
+      file.addViewer(viewers[i])
+    }
+    for (var i = 0; i < protections.length; i++) {
+      var protection = protections[i];
+      for (i=0; i<editors.length;i++){
+        protection.addEditor(editors[i])
+    }
+  }
+    }
+  
+ // move file back out
+  
+  var sourceFileId = 'zAlUJg_12zXxPwdGwqaaPljhdO2cxw';
+  var destinationFolderId = "zAlUJg_12zXxPwdGwqaaPljhdO2cxw";
+  
+  var file = DriveApp.getFileById(sourceFileId);
+  DriveApp.getFolderById(destinationFolderId).addFile(file);
+  file
+  .getParents()
+  .next()
+  .removeFile(file);
+}
+
+
+function makeCopies() {
+
+  // move file in
+  var sourceFileId = 'zAlUJg_12zXxPwdGwqaaPljhdO2cxw';
+  var destinationFolderId = "zAlUJg_12zXxPwdGwqaaPljhdO2cxw";
+  
+  var file = DriveApp.getFileById(sourceFileId);
+  DriveApp.getFolderById(destinationFolderId).addFile(file);
+  file
+  .getParents()
+  .next()
+  .removeFile(file);
+  
+  
+  // make copies
+  var currentSheet = SpreadsheetApp.getActive().getSheetByName('Sheet1')
+  var currentRange = currentSheet.getRange(2,1,150,1).getValues()
+  var newList = []
+  for (i=0;i<currentRange.length;i++){
+    if (currentRange[i]!=""){
+      newList.push(currentRange[i])
+    }
+    }
+  var editors = DriveApp.getFileById('zAlUJg_12zXxPwdGwqaaPljhdO2cxw').getEditors();
+  var viewers = DriveApp.getFileById('zAlUJg_12zXxPwdGwqaaPljhdO2cxw').getViewers();
+  console.log(newList)
+  for (i=0;i<newList.length;i++){
+    var file = DriveApp.getFileById('zAlUJg_12zXxPwdGwqaaPljhdO2cxw').makeCopy();
+    var fileId = file.getId()
+    var name = file.setName(newList[i])
+    console.log(newList[i])
+  }
+
+// give access to users  
+  var folder = DriveApp.getFolderById("zAlUJg_12zXxPwdGwqaaPljhdO2cxw");
+  var filesIterator = folder.getFiles();
+  while(filesIterator.hasNext()){
+    var file = filesIterator.next();
+    var ssID = file.getId()
+    var name = file.getName()
+    console.log(name)
+    var ss2 = SpreadsheetApp.openById(ssID).getSheetByName("All Missing Assignments")
+    var protections = ss2.getProtections(SpreadsheetApp.ProtectionType.SHEET)
+    console.log(protections)
+    for (var i = 0; i<editors.length;i++) {
+      file.addEditor(editors[i])
+    }
+    for (var i = 0; i<viewers.length;i++) {
+      file.addViewer(viewers[i])
+    }
+    for (var i = 0; i < protections.length; i++) {
+      var protection = protections[i];
+      for (i=0; i<editors.length;i++){
+        protection.addEditor(editors[i])
+    }
+  }
+    }
+  
+ // move file back out
+  
+  var sourceFileId = 'zAlUJg_12zXxPwdGwqaaPljhdO2cxw';
+  var destinationFolderId = "zAlUJg_12zXxPwdGwqaaPljhdO2cxw";
+  
+  var file = DriveApp.getFileById(sourceFileId);
+  DriveApp.getFolderById(destinationFolderId).addFile(file);
+  file
+  .getParents()
+  .next()
+  .removeFile(file);
+}
